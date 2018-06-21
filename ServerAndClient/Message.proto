@@ -1,0 +1,14 @@
+syntax="proto3";
+
+option java_outer_classname = "MessageInfo";
+message Message
+{
+
+    int32 msgId = 1;
+    int32 msgSn = 2;
+    bool sercet = 3;
+    int32 sendId = 4;
+    int32 reciveid = 5;
+    string msg = 6;
+}
+
