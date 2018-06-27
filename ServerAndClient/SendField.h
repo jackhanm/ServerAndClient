@@ -12,7 +12,8 @@
 
 - (void)sendFieldDidSend:(NSString *)message;
 - (void)filedChangeWithHeight:(CGFloat)height;
-
+-(void)choosePic;
+-(void)Sendvoice;
 @end
 
 

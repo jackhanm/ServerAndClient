@@ -39,7 +39,19 @@
     [sendButton addTarget:self action:@selector(sendAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:sendButton];
     
-    self.messageView = [[UITextView alloc] initWithFrame:CGRectMake(10, 5, self.frame.size.width - sendButton.frame.size.width - 30, sendButton.frame.size.height)];
+    UIButton *PicButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 5, 40, self.frame.size.height - 10)];
+    [PicButton setTitle:@"图片" forState:UIControlStateNormal];
+    [PicButton addTarget:self action:@selector(ChooseAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:PicButton];
+    
+    UIButton *VoiceButton = [[UIButton alloc] initWithFrame:CGRectMake(50, 5, 40, self.frame.size.height - 10)];
+    [VoiceButton setTitle:@"语音" forState:UIControlStateNormal];
+    [VoiceButton addTarget:self action:@selector(VoiceAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:VoiceButton];
+
+    
+    
+    self.messageView = [[UITextView alloc] initWithFrame:CGRectMake(100, 5, self.frame.size.width - sendButton.frame.size.width - 30-PicButton.frame.size.width-PicButton.frame.size.width, sendButton.frame.size.height)];
     [self.messageView setDelegate:self];
     [self addSubview:self.messageView];
     
@@ -103,6 +115,14 @@
 {
 //    [self.messageView resignFirstResponder];
     [self.delegate sendFieldDidSend:self.messageView.text];
+}
+- (void)ChooseAction:(UIButton *)button
+{
+    [self.delegate choosePic];
+}
+-(void)VoiceAction:(UIButton *)button
+{
+    [self.delegate Sendvoice];
 }
 
 

@@ -17,4 +17,6 @@ typedef NS_ENUM(NSInteger, MessageSource) {
 @interface MessageModel : NSObject
 @property (nonatomic) MessageSource source;
 @property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSData *Data;
+@property (nonatomic, assign) BOOL isPic;
 @end

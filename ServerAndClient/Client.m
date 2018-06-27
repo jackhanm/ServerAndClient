@@ -112,31 +112,31 @@ static Client *client = nil;
     [self parseContentDataWithHeadLength:headL withContentLength:contentL];
     [sock readDataWithTimeout:-1 tag:tag];
 
-    // 判断接收的数据是否是以\r\n结尾，如果是，则证明数据传输结束，如果不是，则继续拼接数据
+//    // 判断接收的数据是否是以\r\n结尾，如果是，则证明数据传输结束，如果不是，则继续拼接数据
+//
+//    NSString *value = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//
+//    if ([value hasSuffix:@"\r\n"]) {
+//
+//        [self.messageData appendData:data];
+//
+//        NSString *str = [[NSString alloc] initWithData:self.messageData encoding:NSUTF8StringEncoding];
+//
+//        str = [str stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
+//        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+//
+//        [[NSNotificationCenter defaultCenter] postNotificationName:ClientReceiveMessage object:nil userInfo:@{@"value" : data}];
+//
+//        self.messageData = [NSMutableData data];
+//
+//    } else {
+//
+//        [self.messageData appendData:data];
+//
+//    }
     
-    NSString *value = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    if ([value hasSuffix:@"\r\n"]) {
-        
-        [self.messageData appendData:data];
-        
-        NSString *str = [[NSString alloc] initWithData:self.messageData encoding:NSUTF8StringEncoding];
-        
-        str = [str stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
-        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:ClientReceiveMessage object:nil userInfo:@{@"value" : data}];
-        
-        self.messageData = [NSMutableData data];
-        
-    } else {
-        
-        [self.messageData appendData:data];
-        
-    }
-    
-    
-    [self.socket readDataWithTimeout:-1 tag:0];
+ //   [self.socket readDataWithTimeout:-1 tag:0];
 }
 /** 解析二进制数据：NSData --> 自定义模型对象 */
 - (void)parseContentDataWithHeadLength:(int32_t)headL withContentLength:(int32_t)contentL{
@@ -168,7 +168,8 @@ static Client *client = nil;
 /** 处理解析出来的信息 */
 - (void)saveReceiveInfo:(Message *)obj{
     //...
-     NSLog(@"%@%@%@",obj.msg,obj.msg,obj.msg);
+    NSLog(@"%@", obj);
+  
     
 }
 

@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+       NSLog(@"%@",NSHomeDirectory());
     // 开启服务器
     SocketHandle *handle = [SocketHandle shareManager];
     [handle startServer];

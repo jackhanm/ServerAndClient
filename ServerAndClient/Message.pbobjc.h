@@ -49,25 +49,58 @@ NS_ASSUME_NONNULL_BEGIN
 typedef GPB_ENUM(Message_FieldNumber) {
   Message_FieldNumber_MsgId = 1,
   Message_FieldNumber_MsgSn = 2,
-  Message_FieldNumber_Sercet = 3,
+  Message_FieldNumber_Sercte = 3,
   Message_FieldNumber_SendId = 4,
-  Message_FieldNumber_Reciveid = 5,
-  Message_FieldNumber_Msg = 6,
+  Message_FieldNumber_ReciveId = 5,
+  Message_FieldNumber_TerminalType = 6,
+  Message_FieldNumber_MsgType = 7,
+  Message_FieldNumber_Token = 8,
+  Message_FieldNumber_TimeStamp = 9,
+  Message_FieldNumber_MsgContent = 10,
+  Message_FieldNumber_ReplyMsg = 11,
+  Message_FieldNumber_GroupMessage = 12,
+  Message_FieldNumber_GroupId = 13,
 };
 
 @interface Message : GPBMessage
 
+/** 消息类型 */
 @property(nonatomic, readwrite) int32_t msgId;
 
-@property(nonatomic, readwrite) int32_t msgSn;
+/** 消息时间戳 */
+@property(nonatomic, readwrite) uint64_t msgSn;
 
-@property(nonatomic, readwrite) BOOL sercet;
+/** 是否加密 */
+@property(nonatomic, readwrite) BOOL sercte;
 
-@property(nonatomic, readwrite) int32_t sendId;
+/** 发送者ID */
+@property(nonatomic, readwrite) uint32_t sendId;
 
-@property(nonatomic, readwrite) int32_t reciveid;
+/** 接收者ID */
+@property(nonatomic, readwrite) uint32_t reciveId;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *msg;
+/** 终端类型 */
+@property(nonatomic, readwrite) uint32_t terminalType;
+
+/** 消息正文类型 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *msgType;
+
+/** 是否群消息 */
+@property(nonatomic, readwrite) BOOL groupMessage;
+
+/** 群ID */
+@property(nonatomic, readwrite) uint32_t groupId;
+
+/** 0x8001 */
+@property(nonatomic, readwrite) int32_t replyMsg;
+
+/** 0x0003 0x0004 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
+
+@property(nonatomic, readwrite) uint64_t timeStamp;
+
+/** 0x8004 8003 0005 */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *msgContent;
 
 @end
 

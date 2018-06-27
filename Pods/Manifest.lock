@@ -1,12 +1,27 @@
 PODS:
+  - HappyDNS (0.3.14)
+  - PLShortVideoKit (1.10.0):
+    - PLShortVideoKit/ex-libMuseProcessor (= 1.10.0)
+    - PLShortVideoKit/libMuseProcessor (= 1.10.0)
+    - Qiniu (~> 7.1)
+  - PLShortVideoKit/ex-libMuseProcessor (1.10.0):
+    - Qiniu (~> 7.1)
+  - PLShortVideoKit/libMuseProcessor (1.10.0):
+    - Qiniu (~> 7.1)
   - ProtocolBuffers (1.9.11)
+  - Qiniu (7.2.4):
+    - HappyDNS (~> 0.3)
 
 DEPENDENCIES:
+  - PLShortVideoKit
   - ProtocolBuffers
 
 SPEC CHECKSUMS:
+  HappyDNS: dc6a164ee81979093123c241c6353bcf0218add6
+  PLShortVideoKit: 86099728bc288502de62b37865d479a85a849e15
   ProtocolBuffers: d509225eb2ea43d9582a59e94348fcf86e2abd65
+  Qiniu: 65384bca1cdb0480a68d9b9b8f54db53418c0355
 
-PODFILE CHECKSUM: 8c8b901b4841496102681ce1118e77dcba6ea1d2
+PODFILE CHECKSUM: 4a136f6bc1271b6af655ba3de413ce4925cb51a1
 
 COCOAPODS: 1.3.1

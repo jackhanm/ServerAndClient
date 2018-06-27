@@ -9,8 +9,8 @@
 #import "ToTableViewCell.h"
 #import "MessageModel.h"
 @interface ToTableViewCell ()
-
 @property (nonatomic, strong) UILabel *messageLabel;
+@property (nonatomic, strong) UIImageView *imageview;
 //@property (nonatomic, strong)
 @end
 
@@ -32,23 +32,35 @@
     [self.messageLabel.layer setMasksToBounds:YES];
     [self.messageLabel setBackgroundColor:[UIColor greenColor]];
     [self.messageLabel.layer setCornerRadius:10];
+    
     [self.contentView addSubview:self.messageLabel];
+    
+    self.imageview = [[UIImageView alloc]initWithFrame:CGRectZero];
+    [self.contentView addSubview:self.imageview];
+    
+    
 }
 - (void)setModel:(MessageModel *)model
 {
     if (_model != model) {
         _model = model;
-        [self changeMessageLabel];
+        [self changeMessageLabel:model];
     }
 }
-- (void)changeMessageLabel
+- (void)changeMessageLabel:(MessageModel *)model
 {
+    if (model.isPic) {
+        UIImage *image = [UIImage imageWithData: model.Data];
+        self.imageview.image = image;
+        [self.imageview setFrame:CGRectMake( 0, 0, 200, 200)];
+    }else{
     CGRect rect = [UIScreen mainScreen].bounds;
     NSDictionary *dic = @{NSFontAttributeName:self.messageLabel.font};
     CGSize size = [self.model.message boundingRectWithSize:CGSizeMake(rect.size.width / 3 * 2, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
     
     [self.messageLabel setText:self.model.message];
     [self.messageLabel setFrame:CGRectMake(0, 0, size.width, size.height)];
+    }
 }
 
 

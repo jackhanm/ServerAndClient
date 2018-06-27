@@ -1,14 +1,36 @@
 syntax="proto3";
 
 option java_outer_classname = "MessageInfo";
-message Message
-{
 
-    int32 msgId = 1;
-    int32 msgSn = 2;
-    bool sercet = 3;
-    int32 sendId = 4;
-    int32 reciveid = 5;
-    string msg = 6;
+message Message{
+    //消息类型
+    int32 MSG_ID = 1;
+    //消息时间戳
+    uint64 MSG_SN = 2;
+    //是否加密
+    bool SERCTE = 3;
+    //发送者ID
+    uint32 SEND_ID = 4;
+    //接收者ID
+    uint32 RECIVE_ID = 5;
+    //终端类型
+    uint32 TERMINAL_TYPE = 6;
+    //消息正文类型
+    string MSG_TYPE = 7;
+    //是否群消息
+    bool GROUP_MESSAGE = 12;
+    //群ID
+    uint32 GROUP_ID = 13;
+
+    //0x0002
+
+    //0x8001
+    int32 REPLY_MSG = 11;
+
+    //0x0003 0x0004
+    string TOKEN = 8;
+    uint64 TIME_STAMP = 9;
+
+    //0x8004 8003 0005
+    bytes MSG_CONTENT = 10;
 }
-

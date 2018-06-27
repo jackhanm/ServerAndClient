@@ -29,10 +29,12 @@
 		6605E93420D9F041004B2519 /* CommonShop.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6605E93220D9F041004B2519 /* CommonShop.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6605E93520D9F041004B2519 /* Person.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6605E93320D9F041004B2519 /* Person.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6605E95620D9F1DC004B2519 /* libProtocolBuffers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6605E94F20D9F1A1004B2519 /* libProtocolBuffers.a */; };
-		6605E95820DA3080004B2519 /* Message.proto in Resources */ = {isa = PBXBuildFile; fileRef = 6605E95720DA307F004B2519 /* Message.proto */; };
 		6605E95A20DA3092004B2519 /* CommonShop.proto in Resources */ = {isa = PBXBuildFile; fileRef = 6605E95920DA3092004B2519 /* CommonShop.proto */; };
 		6605E95C20DA3098004B2519 /* Person.proto in Resources */ = {isa = PBXBuildFile; fileRef = 6605E95B20DA3098004B2519 /* Person.proto */; };
-		6605E96720DA351A004B2519 /* Message.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6605E96120DA3519004B2519 /* Message.pbobjc.m */; };
+		66C351D420E09D3A00EA07CF /* Message.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C351D320E09D3A00EA07CF /* Message.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		66C351D620E09D5C00EA07CF /* Message.proto in Resources */ = {isa = PBXBuildFile; fileRef = 66C351D520E09D5C00EA07CF /* Message.proto */; };
+		66CC356D20DCD00700110ABD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CC356C20DCD00700110ABD /* CoreAudio.framework */; };
+		66CC356F20DCD01300110ABD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CC356E20DCD01300110ABD /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,11 +116,13 @@
 		6605E93220D9F041004B2519 /* CommonShop.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonShop.pbobjc.m; sourceTree = "<group>"; };
 		6605E93320D9F041004B2519 /* Person.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.pbobjc.m; sourceTree = "<group>"; };
 		6605E94620D9F1A0004B2519 /* ProtocolBuffers_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_iOS.xcodeproj; sourceTree = "<group>"; };
-		6605E95720DA307F004B2519 /* Message.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Message.proto; sourceTree = "<group>"; };
 		6605E95920DA3092004B2519 /* CommonShop.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CommonShop.proto; sourceTree = "<group>"; };
 		6605E95B20DA3098004B2519 /* Person.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Person.proto; sourceTree = "<group>"; };
-		6605E95E20DA3518004B2519 /* Message.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.pbobjc.h; sourceTree = "<group>"; };
-		6605E96120DA3519004B2519 /* Message.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.pbobjc.m; sourceTree = "<group>"; };
+		66C351D220E09D3900EA07CF /* Message.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.pbobjc.h; sourceTree = "<group>"; };
+		66C351D320E09D3A00EA07CF /* Message.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.pbobjc.m; sourceTree = "<group>"; };
+		66C351D520E09D5C00EA07CF /* Message.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Message.proto; sourceTree = "<group>"; };
+		66CC356C20DCD00700110ABD /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		66CC356E20DCD01300110ABD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6714F2DB25525F9EFC18DCEC /* Pods-ServerAndClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServerAndClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ServerAndClient/Pods-ServerAndClient.release.xcconfig"; sourceTree = "<group>"; };
 		B392A1A927255E3C6C11EBA2 /* libPods-ServerAndClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ServerAndClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99E5E4E9FAC75A18DFD6A91 /* Pods-ServerAndClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServerAndClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ServerAndClient/Pods-ServerAndClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CC356F20DCD01300110ABD /* AVFoundation.framework in Frameworks */,
+				66CC356D20DCD00700110ABD /* CoreAudio.framework in Frameworks */,
 				6605E95620D9F1DC004B2519 /* libProtocolBuffers.a in Frameworks */,
 				21339931ED3169519AF85D56 /* libPods-ServerAndClient.a in Frameworks */,
 			);
@@ -168,10 +174,10 @@
 		18682EEB1B12FA330040124D /* ServerAndClient */ = {
 			isa = PBXGroup;
 			children = (
-				6605E95E20DA3518004B2519 /* Message.pbobjc.h */,
-				6605E96120DA3519004B2519 /* Message.pbobjc.m */,
-				6605E95720DA307F004B2519 /* Message.proto */,
+				66C351D220E09D3900EA07CF /* Message.pbobjc.h */,
+				66C351D320E09D3A00EA07CF /* Message.pbobjc.m */,
 				6605E95920DA3092004B2519 /* CommonShop.proto */,
+				66C351D520E09D5C00EA07CF /* Message.proto */,
 				6605E95B20DA3098004B2519 /* Person.proto */,
 				18682EF01B12FA330040124D /* AppDelegate.h */,
 				18682EF11B12FA330040124D /* AppDelegate.m */,
@@ -284,6 +290,8 @@
 		8AD4EADA1B57DA0ABB353CA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66CC356E20DCD01300110ABD /* AVFoundation.framework */,
+				66CC356C20DCD00700110ABD /* CoreAudio.framework */,
 				B392A1A927255E3C6C11EBA2 /* libPods-ServerAndClient.a */,
 			);
 			name = Frameworks;
@@ -350,6 +358,8 @@
 				TargetAttributes = {
 					18682EE81B12FA330040124D = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = H5HRJB9U8F;
+						ProvisioningStyle = Automatic;
 					};
 					18682F011B12FA330040124D = {
 						CreatedOnToolsVersion = 6.1;
@@ -418,7 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6605E95820DA3080004B2519 /* Message.proto in Resources */,
+				66C351D620E09D5C00EA07CF /* Message.proto in Resources */,
 				18682EF81B12FA330040124D /* Main.storyboard in Resources */,
 				18682EFD1B12FA330040124D /* LaunchScreen.xib in Resources */,
 				6605E95A20DA3092004B2519 /* CommonShop.proto in Resources */,
@@ -495,10 +505,10 @@
 				6605E93420D9F041004B2519 /* CommonShop.pbobjc.m in Sources */,
 				18682F161B12FCE80040124D /* GCDAsyncSocket.m in Sources */,
 				18682F171B12FCE80040124D /* GCDAsyncUdpSocket.m in Sources */,
-				6605E96720DA351A004B2519 /* Message.pbobjc.m in Sources */,
 				18682EF51B12FA330040124D /* ViewController.m in Sources */,
 				18F0FDAD1B14511300A2DB70 /* FromTableViewCell.m in Sources */,
 				18682EF21B12FA330040124D /* AppDelegate.m in Sources */,
+				66C351D420E09D3A00EA07CF /* Message.pbobjc.m in Sources */,
 				18682F1A1B1337290040124D /* Server.m in Sources */,
 				183B80AC1B1869E7001B6CCC /* SocketHandle.m in Sources */,
 				18F0FDB61B149E2300A2DB70 /* SendField.m in Sources */,
@@ -632,6 +642,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5HRJB9U8F;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -641,7 +653,8 @@
 				INFOPLIST_FILE = ServerAndClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "83180d66-326a-4a72-93dc-52f3699dcfac";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -651,6 +664,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5HRJB9U8F;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -660,7 +675,8 @@
 				INFOPLIST_FILE = ServerAndClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "83180d66-326a-4a72-93dc-52f3699dcfac";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

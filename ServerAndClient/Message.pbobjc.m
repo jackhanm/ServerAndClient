@@ -48,18 +48,31 @@ static GPBFileDescriptor *MessageRoot_FileDescriptor(void) {
 
 @dynamic msgId;
 @dynamic msgSn;
-@dynamic sercet;
+@dynamic sercte;
 @dynamic sendId;
-@dynamic reciveid;
-@dynamic msg;
+@dynamic reciveId;
+@dynamic terminalType;
+@dynamic msgType;
+@dynamic groupMessage;
+@dynamic groupId;
+@dynamic replyMsg;
+@dynamic token;
+@dynamic timeStamp;
+@dynamic msgContent;
 
 typedef struct Message__storage_ {
   uint32_t _has_storage_[1];
   int32_t msgId;
-  int32_t msgSn;
-  int32_t sendId;
-  int32_t reciveid;
-__unsafe_unretained  NSString *msg;
+  uint32_t sendId;
+  uint32_t reciveId;
+  uint32_t terminalType;
+  int32_t replyMsg;
+  uint32_t groupId;
+  NSString *msgType;
+  NSString *token;
+  NSData *msgContent;
+  uint64_t msgSn;
+  uint64_t timeStamp;
 } Message__storage_;
 
 // This method is threadsafe because it is initially called
@@ -84,15 +97,15 @@ __unsafe_unretained  NSString *msg;
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(Message__storage_, msgSn),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeInt32,
+        .dataType = GPBDataTypeUInt64,
       },
       {
-        .name = "sercet",
+        .name = "sercte",
         .dataTypeSpecific.className = NULL,
-        .number = Message_FieldNumber_Sercet,
+        .number = Message_FieldNumber_Sercte,
         .hasIndex = 2,
         .offset = 3,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBool,
       },
       {
@@ -102,25 +115,88 @@ __unsafe_unretained  NSString *msg;
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(Message__storage_, sendId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeInt32,
+        .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "reciveid",
+        .name = "reciveId",
         .dataTypeSpecific.className = NULL,
-        .number = Message_FieldNumber_Reciveid,
+        .number = Message_FieldNumber_ReciveId,
         .hasIndex = 5,
-        .offset = (uint32_t)offsetof(Message__storage_, reciveid),
-        .flags = GPBFieldOptional,
+        .offset = (uint32_t)offsetof(Message__storage_, reciveId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "terminalType",
+        .dataTypeSpecific.className = NULL,
+        .number = Message_FieldNumber_TerminalType,
+        .hasIndex = 6,
+        .offset = (uint32_t)offsetof(Message__storage_, terminalType),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "msgType",
+        .dataTypeSpecific.className = NULL,
+        .number = Message_FieldNumber_MsgType,
+        .hasIndex = 7,
+        .offset = (uint32_t)offsetof(Message__storage_, msgType),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "token",
+        .dataTypeSpecific.className = NULL,
+        .number = Message_FieldNumber_Token,
+        .hasIndex = 12,
+        .offset = (uint32_t)offsetof(Message__storage_, token),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "timeStamp",
+        .dataTypeSpecific.className = NULL,
+        .number = Message_FieldNumber_TimeStamp,
+        .hasIndex = 13,
+        .offset = (uint32_t)offsetof(Message__storage_, timeStamp),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "msgContent",
+        .dataTypeSpecific.className = NULL,
+        .number = Message_FieldNumber_MsgContent,
+        .hasIndex = 14,
+        .offset = (uint32_t)offsetof(Message__storage_, msgContent),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "replyMsg",
+        .dataTypeSpecific.className = NULL,
+        .number = Message_FieldNumber_ReplyMsg,
+        .hasIndex = 11,
+        .offset = (uint32_t)offsetof(Message__storage_, replyMsg),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeInt32,
       },
       {
-        .name = "msg",
+        .name = "groupMessage",
         .dataTypeSpecific.className = NULL,
-        .number = Message_FieldNumber_Msg,
-        .hasIndex = 6,
-        .offset = (uint32_t)offsetof(Message__storage_, msg),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
+        .number = Message_FieldNumber_GroupMessage,
+        .hasIndex = 8,
+        .offset = 9,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "groupId",
+        .dataTypeSpecific.className = NULL,
+        .number = Message_FieldNumber_GroupId,
+        .hasIndex = 10,
+        .offset = (uint32_t)offsetof(Message__storage_, groupId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeUInt32,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -133,7 +209,8 @@ __unsafe_unretained  NSString *msg;
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\003\001\005\000\002\005\000\004\006\000";
+        "\r\001c\342\000\002c\342\000\003f\000\004d\342\000\005f\342\000\006h\344\000\007c\344\000\010e\000\td\345\000\nc\347\000\013"
+        "e\343\000\014e\347\000\re\342\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");

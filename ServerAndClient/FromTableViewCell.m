@@ -10,6 +10,7 @@
 #import "MessageModel.h"
 @interface FromTableViewCell()
 @property (nonatomic, strong) UILabel *messageLabel;
+@property (nonatomic, strong) UIImageView *imageview;
 //@property (nonatomic, strong) 
 @end
 
@@ -33,22 +34,34 @@
     [self.messageLabel.layer setCornerRadius:10];
 
     [self.contentView addSubview:self.messageLabel];
+    
+    self.imageview = [[UIImageView alloc]initWithFrame:CGRectZero];
+    [self.contentView addSubview:self.imageview];
+    
+    
 }
 - (void)setModel:(MessageModel *)model
 {
     if (_model != model) {
         _model = model;
-        [self changeMessageLabel];
+        [self changeMessageLabel:model];
     }
 }
-- (void)changeMessageLabel
+- (void)changeMessageLabel:(MessageModel *)model
 {
-    CGRect rect = [UIScreen mainScreen].bounds;
-    NSDictionary *dic = @{NSFontAttributeName:self.messageLabel.font};
-    CGSize size = [self.model.message boundingRectWithSize:CGSizeMake(rect.size.width / 3 * 2, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
-    CGFloat x = rect.size.width - size.width;
-    [self.messageLabel setText:self.model.message];
-    [self.messageLabel setFrame:CGRectMake(x, 0, size.width, size.height)];
+    if (model.isPic) {
+        UIImage *image = [UIImage imageWithData: model.Data];
+        self.imageview.image = image;
+        [self.imageview setFrame:CGRectMake( [UIScreen mainScreen].bounds.size.width -200, 0, 200, 200)];
+    }else{
+        CGRect rect = [UIScreen mainScreen].bounds;
+        NSDictionary *dic = @{NSFontAttributeName:self.messageLabel.font};
+        CGSize size = [self.model.message boundingRectWithSize:CGSizeMake(rect.size.width / 3 * 2, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+        CGFloat x = rect.size.width - size.width;
+        [self.messageLabel setText:self.model.message];
+        [self.messageLabel setFrame:CGRectMake(x, 0, size.width, size.height)];
+    }
+  
 }
 
 
