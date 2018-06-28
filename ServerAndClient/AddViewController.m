@@ -17,7 +17,8 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 #import "SocketHandle.h"
-
+#import "CommenHttpAPI.h"
+#import "CommenRequestModel.h"
 @interface AddViewController ()
 @property (nonatomic, strong) UITextField *otherIp;
 @property (nonatomic, strong) UITextField *portFiled;
@@ -72,8 +73,26 @@
   //  [self.portFiled setText:@"8080"];
  //   [self.portFiled setEnabled:NO];
     [self.view addSubview:self.portFiled];
+    
+    
+    UIButton *PicButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    PicButton.frame = CGRectMake(150, 280, 100, 30);
+    [PicButton setTitle:@"图片" forState:UIControlStateNormal];
+    [PicButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [PicButton addTarget:self action:@selector(registeruser) forControlEvents:UIControlEventTouchUpInside];
+    [self.view  addSubview:PicButton];
+    
 }
-
+-(void)registeruser
+{
+    [CommenHttpAPI KLRegistWithParemeters:[CommenRequestModel loginName:@"yuhao1" password:@"123456"] progress:^(NSProgress * _Nonnull progress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseobject) {
+        NSLog(@"%@",responseobject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
 // 开始连接
 - (void)connectAction:(id)sender
 {

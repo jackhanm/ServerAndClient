@@ -10,44 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.303336"
+            timestampString = "551871666.657203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "-sendLogin"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ServerAndClient/SocketHandle.m"
-            timestampString = "551353638.2755719"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-writeWithmodel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ServerAndClient/SocketHandle.m"
-            timestampString = "551353638.2762361"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-writeWithmodel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,76 +35,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ServerAndClient/Client.m"
-            timestampString = "551603698.3039989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "-saveReceiveInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ServerAndClient/Client.m"
-            timestampString = "551603698.30417"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-saveReceiveInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.304323"
+            timestampString = "551871666.658155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "423"
-            endingLineNumber = "423"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.304871"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "424"
-            endingLineNumber = "424"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.305407"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
+            startingLineNumber = "566"
+            endingLineNumber = "566"
             landmarkName = "-receiveMessage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.30572"
+            timestampString = "551871666.658651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "534"
-            endingLineNumber = "534"
+            startingLineNumber = "559"
+            endingLineNumber = "559"
             landmarkName = "-receiveMessage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.306005"
+            timestampString = "551871666.659012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "535"
-            endingLineNumber = "535"
+            startingLineNumber = "560"
+            endingLineNumber = "560"
             landmarkName = "-receiveMessage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -228,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.306365"
+            timestampString = "551871666.6596169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
             landmarkName = "-receiveMessage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -244,13 +148,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServerAndClient/ViewController.m"
-            timestampString = "551603698.306637"
+            timestampString = "551871666.660005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
+            startingLineNumber = "585"
+            endingLineNumber = "585"
             landmarkName = "-receiveMessage:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController receiveMessage:]"
+                  moduleName = "ServerAndClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuhao/Desktop/Socket/ServerAndClient/ServerAndClient/ViewController.m"
+                  timestampString = "551871666.8209701"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "585"
+                  endingLineNumber = "585"
+                  offsetFromSymbolStart = "1800">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController receiveMessage:]"
+                  moduleName = "ServerAndClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuhao/Desktop/Socket/ServerAndClient/ServerAndClient/ViewController.m"
+                  timestampString = "551871666.823984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "585"
+                  endingLineNumber = "585"
+                  offsetFromSymbolStart = "1836">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

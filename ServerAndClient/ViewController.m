@@ -19,6 +19,8 @@
 #import "Person.pbobjc.h"  //模型
 #import "Message.pbobjc.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CommenHttpAPI.h"
+#import "CommenRequestModel.h"
 # define COUNTDOWN 60
 #define tableHeight [UIScreen mainScreen].bounds.size.height - 104
 
@@ -76,6 +78,15 @@
     [self createTable];
     
    
+    [CommenHttpAPI klLoginWithParemeters:[CommenRequestModel loginName:@"yuhao" password:@"123456"] progress:^(NSProgress * _Nonnull progress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseobject) {
+        NSLog(@"%@",responseobject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+    
 }
 
 
@@ -424,6 +435,20 @@
         model.Data = per.msgContent;
     }
       [c writeWithmodel:per];
+    
+    // 创建一个串行队列
+    dispatch_queue_t queue =  dispatch_queue_create("zy", NULL);
+    // 将任务添加到队列中
+    dispatch_async(queue, ^{
+       
+        [CommenHttpAPI uploadWithURLString:@"http://172.16.255.124:8080/ImIndex/upload?file=" parameters:@{@"file":@""} uploadData:data uploadName:@"file" success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"%@",responseObject);
+        } failure:^(NSError *re) {
+             NSLog(@"%@",re);
+            
+        }];
+    });
+    
     
     
     [self.tableArray addObject:model];

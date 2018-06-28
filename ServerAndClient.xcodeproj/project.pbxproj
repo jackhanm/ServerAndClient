@@ -31,6 +31,12 @@
 		6605E95620D9F1DC004B2519 /* libProtocolBuffers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6605E94F20D9F1A1004B2519 /* libProtocolBuffers.a */; };
 		6605E95A20DA3092004B2519 /* CommonShop.proto in Resources */ = {isa = PBXBuildFile; fileRef = 6605E95920DA3092004B2519 /* CommonShop.proto */; };
 		6605E95C20DA3098004B2519 /* Person.proto in Resources */ = {isa = PBXBuildFile; fileRef = 6605E95B20DA3098004B2519 /* Person.proto */; };
+		668C241820E4D452004523C2 /* JKAFNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 668C240B20E4D452004523C2 /* JKAFNetTool.m */; };
+		668C241920E4D452004523C2 /* NetworkMonitoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 668C241320E4D452004523C2 /* NetworkMonitoreManager.m */; };
+		668C241A20E4D452004523C2 /* BaseHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 668C241420E4D452004523C2 /* BaseHttpSessionManager.m */; };
+		668C241B20E4D452004523C2 /* CommenRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 668C241520E4D452004523C2 /* CommenRequestModel.m */; };
+		668C241C20E4D452004523C2 /* CommenHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 668C241620E4D452004523C2 /* CommenHttpAPI.m */; };
+		668C241D20E4D452004523C2 /* BaseRequestParmsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 668C241720E4D452004523C2 /* BaseRequestParmsModel.m */; };
 		66C351D420E09D3A00EA07CF /* Message.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C351D320E09D3A00EA07CF /* Message.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		66C351D620E09D5C00EA07CF /* Message.proto in Resources */ = {isa = PBXBuildFile; fileRef = 66C351D520E09D5C00EA07CF /* Message.proto */; };
 		66CC356D20DCD00700110ABD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CC356C20DCD00700110ABD /* CoreAudio.framework */; };
@@ -118,6 +124,19 @@
 		6605E94620D9F1A0004B2519 /* ProtocolBuffers_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_iOS.xcodeproj; sourceTree = "<group>"; };
 		6605E95920DA3092004B2519 /* CommonShop.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CommonShop.proto; sourceTree = "<group>"; };
 		6605E95B20DA3098004B2519 /* Person.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Person.proto; sourceTree = "<group>"; };
+		668C240B20E4D452004523C2 /* JKAFNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKAFNetTool.m; sourceTree = "<group>"; };
+		668C240C20E4D452004523C2 /* BaseHttpSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHttpSessionManager.h; sourceTree = "<group>"; };
+		668C240D20E4D452004523C2 /* NetworkMonitoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMonitoreManager.h; sourceTree = "<group>"; };
+		668C240E20E4D452004523C2 /* BaseRequestParmsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestParmsModel.h; sourceTree = "<group>"; };
+		668C240F20E4D452004523C2 /* CommenHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenHttpAPI.h; sourceTree = "<group>"; };
+		668C241020E4D452004523C2 /* CommenRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenRequestModel.h; sourceTree = "<group>"; };
+		668C241120E4D452004523C2 /* NetUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetUrl.h; sourceTree = "<group>"; };
+		668C241220E4D452004523C2 /* JKAFNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKAFNetTool.h; sourceTree = "<group>"; };
+		668C241320E4D452004523C2 /* NetworkMonitoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMonitoreManager.m; sourceTree = "<group>"; };
+		668C241420E4D452004523C2 /* BaseHttpSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHttpSessionManager.m; sourceTree = "<group>"; };
+		668C241520E4D452004523C2 /* CommenRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenRequestModel.m; sourceTree = "<group>"; };
+		668C241620E4D452004523C2 /* CommenHttpAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenHttpAPI.m; sourceTree = "<group>"; };
+		668C241720E4D452004523C2 /* BaseRequestParmsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestParmsModel.m; sourceTree = "<group>"; };
 		66C351D220E09D3900EA07CF /* Message.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.pbobjc.h; sourceTree = "<group>"; };
 		66C351D320E09D3A00EA07CF /* Message.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.pbobjc.m; sourceTree = "<group>"; };
 		66C351D520E09D5C00EA07CF /* Message.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Message.proto; sourceTree = "<group>"; };
@@ -153,6 +172,7 @@
 		18682EE01B12FA330040124D = {
 			isa = PBXGroup;
 			children = (
+				668C240A20E4D452004523C2 /* Network */,
 				6605E91E20D9EF82004B2519 /* protocobuf */,
 				18682EEB1B12FA330040124D /* ServerAndClient */,
 				18682F051B12FA330040124D /* ServerAndClientTests */,
@@ -285,6 +305,27 @@
 				6605E95520D9F1A1004B2519 /* libTestSingleSourceBuild.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		668C240A20E4D452004523C2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				668C240B20E4D452004523C2 /* JKAFNetTool.m */,
+				668C240C20E4D452004523C2 /* BaseHttpSessionManager.h */,
+				668C240D20E4D452004523C2 /* NetworkMonitoreManager.h */,
+				668C240E20E4D452004523C2 /* BaseRequestParmsModel.h */,
+				668C240F20E4D452004523C2 /* CommenHttpAPI.h */,
+				668C241020E4D452004523C2 /* CommenRequestModel.h */,
+				668C241120E4D452004523C2 /* NetUrl.h */,
+				668C241220E4D452004523C2 /* JKAFNetTool.h */,
+				668C241320E4D452004523C2 /* NetworkMonitoreManager.m */,
+				668C241420E4D452004523C2 /* BaseHttpSessionManager.m */,
+				668C241520E4D452004523C2 /* CommenRequestModel.m */,
+				668C241620E4D452004523C2 /* CommenHttpAPI.m */,
+				668C241720E4D452004523C2 /* BaseRequestParmsModel.m */,
+			);
+			name = Network;
+			path = ServerAndClient/Network;
 			sourceTree = "<group>";
 		};
 		8AD4EADA1B57DA0ABB353CA1 /* Frameworks */ = {
@@ -506,19 +547,25 @@
 				18682F161B12FCE80040124D /* GCDAsyncSocket.m in Sources */,
 				18682F171B12FCE80040124D /* GCDAsyncUdpSocket.m in Sources */,
 				18682EF51B12FA330040124D /* ViewController.m in Sources */,
+				668C241920E4D452004523C2 /* NetworkMonitoreManager.m in Sources */,
 				18F0FDAD1B14511300A2DB70 /* FromTableViewCell.m in Sources */,
+				668C241B20E4D452004523C2 /* CommenRequestModel.m in Sources */,
 				18682EF21B12FA330040124D /* AppDelegate.m in Sources */,
 				66C351D420E09D3A00EA07CF /* Message.pbobjc.m in Sources */,
+				668C241820E4D452004523C2 /* JKAFNetTool.m in Sources */,
 				18682F1A1B1337290040124D /* Server.m in Sources */,
 				183B80AC1B1869E7001B6CCC /* SocketHandle.m in Sources */,
 				18F0FDB61B149E2300A2DB70 /* SendField.m in Sources */,
 				18682EEF1B12FA330040124D /* main.m in Sources */,
 				18682F1D1B134B980040124D /* Client.m in Sources */,
 				183F3A641B1D9A9B006197F9 /* AddViewController.m in Sources */,
+				668C241D20E4D452004523C2 /* BaseRequestParmsModel.m in Sources */,
 				18F0FDB01B14511A00A2DB70 /* ToTableViewCell.m in Sources */,
 				18B47C511C04086000115A46 /* MyClient.m in Sources */,
+				668C241A20E4D452004523C2 /* BaseHttpSessionManager.m in Sources */,
 				18F0FDAA1B1450E600A2DB70 /* MessageModel.m in Sources */,
 				6605E93520D9F041004B2519 /* Person.pbobjc.m in Sources */,
+				668C241C20E4D452004523C2 /* CommenHttpAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +691,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H5HRJB9U8F;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -666,6 +715,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H5HRJB9U8F;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
