@@ -3,7 +3,7 @@
 //  ServerAndClient
 //
 //  Created by 蒋杏飞 on 15/5/25.
-//  Copyright (c) 2015年 蓝鸥科技. All rights reserved.
+//  Copyright (c) 2015年 . All rights reserved.
 //
 
 #import "ViewController.h"
@@ -11,13 +11,14 @@
 #import "ToTableViewCell.h"
 #import "Server.h"
 #import "Client.h"
+#import "Message.pbobjc.h"
 #import "MessageModel.h"
 #import "SendField.h"
 #import "SocketHandle.h"
 #import "AddViewController.h"
 #import "GCDAsyncSocket.h"
 #import "Person.pbobjc.h"  //模型
-#import "Message.pbobjc.h"
+
 #import <AVFoundation/AVFoundation.h>
 #import "CommenHttpAPI.h"
 #import "CommenRequestModel.h"
@@ -78,10 +79,17 @@
     [self createTable];
     
    
-    [CommenHttpAPI klLoginWithParemeters:[CommenRequestModel loginName:@"yuhao" password:@"123456"] progress:^(NSProgress * _Nonnull progress) {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:1530259881616 forKey:@"timestamp"];
+    
+
+    
+    [CommenHttpAPI klLoginWithParemeters:nil progress:^(NSProgress * _Nonnull progress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseobject) {
         NSLog(@"%@",responseobject);
+        [SocketHandle shareManager].token = [responseobject valueForKey:@"data"];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
@@ -154,7 +162,12 @@
  *
  */
 
-
+- (NSString *)currentTimeStr{
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    return timeString;
+}
 #pragma mark -
 #pragma mark fieldDelegate
 // 发送按钮协议
@@ -177,23 +190,23 @@
 //     创建对象
     
     Message *per = [[Message alloc] init];
-    per.msgId = 4;
+    per.msgId = 5;
     per.msgSn = 1;
     per.sercte =false;
-    per.sendId = 1;
-    per.reciveId = 2;
+    per.sendId = 10;
+    per.reciveId = 11;
     per.terminalType=1;
-    per.msgType=@"txt";
+    per.msgType=@"text";
     per.replyMsg=1;
-    per.token = @"123456";
-    per.timeStamp =11;
+    per.token = [SocketHandle shareManager].token;
+    per.timeStamp =(NSInteger)[self currentTimeStr];
     NSString *str = message;
     NSData *Data = [str dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@",Data);
-    per.msgContent = Data;
-   
-
-       [c writeWithmodel:per];
+    per.msgContent =Data ;
+    
+    
+    [c writeWithmodel:per];
    
     
     
@@ -407,7 +420,9 @@
     //        ICLog(@"movie");
     //    } else {
     UIImage *orgImage = info[UIImagePickerControllerOriginalImage];
-    NSData *data =UIImageJPEGRepresentation(orgImage, 1.0);
+   UIImage *smallImage = [self compressImage:orgImage toByte:100*1024];
+    NSData *data =UIImageJPEGRepresentation([self compressImage:orgImage toByte:100*1024], 0.1);
+    NSData *orgImagedata = UIImageJPEGRepresentation(orgImage, 0.1);
     [picker dismissViewControllerAnimated:YES completion:nil];
     // 图片压缩后再上传服务器
     // 保存路径
@@ -417,12 +432,12 @@
     per.msgId = 5;
     per.msgSn = 1;
     per.sercte =false;
-    per.sendId = 1;
-    per.reciveId = 1;
+    per.sendId = 10;
+    per.reciveId = 11;
     per.terminalType=1;
     per.msgType=@"pic";
     per.replyMsg=1;
-    per.token = @"123456";
+    per.token =  [SocketHandle shareManager].token;
     per.timeStamp =11;
     SocketHandle *c = [SocketHandle shareManager];
     per.msgContent = data;
@@ -435,18 +450,43 @@
         model.Data = per.msgContent;
     }
       [c writeWithmodel:per];
-    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *str = [formatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
     // 创建一个串行队列
     dispatch_queue_t queue =  dispatch_queue_create("zy", NULL);
     // 将任务添加到队列中
     dispatch_async(queue, ^{
        
-        [CommenHttpAPI uploadWithURLString:@"http://172.16.255.124:8080/ImIndex/upload?file=" parameters:@{@"file":@""} uploadData:data uploadName:@"file" success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"%@",responseObject);
-        } failure:^(NSError *re) {
-             NSLog(@"%@",re);
-            
+//        [CommenHttpAPI uploadWithURLString:@"http://172.16.255.124:8080/ImIndex/upload" parameters:@{@"file":@""} uploadData:data uploadName:fileName success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            id result = [NSJSONSerialization JSONObjectWithData:responseObject options: NSJSONReadingMutableContainers error:nil];
+//            NSLog(@"%@", result);
+//            NSLog(@"%@", responseObject);
+//        } failure:^(NSError *re) {
+//             NSLog(@"%@",re);
+//
+//        }];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        NSDictionary *dataDict = @{@"file":orgImagedata};
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+       
+        
+        [manager POST:@"http://172.16.255.124:8080/ImIndex/upload" parameters:dataDict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            [formData appendPartWithFileData:orgImagedata name:@"file" fileName:fileName mimeType:@"image/jpeg"];
+        } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            id result = [NSJSONSerialization JSONObjectWithData:responseObject options: NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@", result);
+          
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
         }];
+
+
     });
     
     
@@ -458,6 +498,49 @@
   
     //    }
 }
+-(UIImage *)compressImage:(UIImage *)image toByte:(NSUInteger)maxLength {
+    // Compress by quality
+    CGFloat compression = 1;
+  
+    NSData *data = UIImageJPEGRepresentation(image, compression);
+    if (data.length < maxLength) return image;
+    
+    CGFloat max = 1;
+    CGFloat min = 0;
+    for (int i = 0; i < 6; ++i) {
+        compression = (max + min) / 2;
+        data = UIImageJPEGRepresentation(image, compression);
+        if (data.length < maxLength ) {
+            break;
+        } else if (data.length > maxLength) {
+            max = compression;
+        } else {
+            break;
+        }
+    }
+    UIImage *resultImage = [UIImage imageWithData:data];
+    UIImage *renturnimage;
+    if (data.length < maxLength) return resultImage;
+    
+    // Compress by size
+    NSUInteger lastDataLength = 0;
+    while (data.length > maxLength && data.length != lastDataLength) {
+        lastDataLength = data.length;
+        CGFloat ratio = (CGFloat)maxLength / data.length;
+        CGSize size = CGSizeMake((NSUInteger)(resultImage.size.width * sqrtf(ratio)),
+                                 (NSUInteger)(resultImage.size.height * sqrtf(ratio))); // Use NSUInteger to prevent white blank
+        UIGraphicsBeginImageContext(size);
+        [resultImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        resultImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        data = UIImageJPEGRepresentation(resultImage, compression);
+        renturnimage = [UIImage imageWithData:data];
+    }
+      NSData *data1 = UIImageJPEGRepresentation(renturnimage, 1.0);
+     NSData *data2 = UIImageJPEGRepresentation(resultImage, 1.0);
+    return renturnimage;
+}
+
 /**
  *  保存图片到沙盒
  *
@@ -555,6 +638,14 @@
   //  model.message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
    model.message = [[NSString alloc] initWithData:per1.msgContent encoding:NSUTF8StringEncoding]  ;
     model.source = MessageSourceOther;
+   
+    if (per1.msgId == 32771) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger:per1.msgSn forKey:@"timestamp"];
+    }
+   
+    
+    
     if ([per1.msgType isEqualToString: @"pic"] ||[per1.msgType isEqualToString: @"jpg"]  ||[per1.msgType isEqualToString: @"png"]) {
         model.isPic = YES;
         model.Data = per1.msgContent;

@@ -3,7 +3,7 @@
 //  ServerAndClient
 //
 //  Created by 蒋杏飞 on 15/6/2.
-//  Copyright (c) 2015年 蓝鸥科技. All rights reserved.
+//  Copyright (c) 2015年 . All rights reserved.
 //
 
 #import "AddViewController.h"
@@ -15,7 +15,8 @@
 #include <ifaddrs.h>
 #import <dlfcn.h>
 #import <SystemConfiguration/SystemConfiguration.h>
-
+#import "Client.h"
+#import "Message.pbobjc.h"
 #import "SocketHandle.h"
 #import "CommenHttpAPI.h"
 #import "CommenRequestModel.h"
@@ -77,7 +78,7 @@
     
     UIButton *PicButton = [UIButton buttonWithType:UIButtonTypeCustom];
     PicButton.frame = CGRectMake(150, 280, 100, 30);
-    [PicButton setTitle:@"图片" forState:UIControlStateNormal];
+    [PicButton setTitle:@"注册" forState:UIControlStateNormal];
     [PicButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [PicButton addTarget:self action:@selector(registeruser) forControlEvents:UIControlEventTouchUpInside];
     [self.view  addSubview:PicButton];
@@ -85,12 +86,12 @@
 }
 -(void)registeruser
 {
-    [CommenHttpAPI KLRegistWithParemeters:[CommenRequestModel loginName:@"yuhao1" password:@"123456"] progress:^(NSProgress * _Nonnull progress) {
+    [CommenHttpAPI KLRegistWithParemeters:nil progress:^(NSProgress * _Nonnull progress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseobject) {
         NSLog(@"%@",responseobject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        NSLog(@"%@",error);
     }];
 }
 // 开始连接
@@ -98,7 +99,31 @@
 {
     SocketHandle *my = [SocketHandle shareManager];
     [my startClientConnect:self.otherIp.text port:self.portFiled.text];
+      SocketHandle *c = [SocketHandle shareManager];
+    Message *per = [[Message alloc] init];
+    per.msgId = 4;
+    per.msgSn = 1;
+    per.sercte =false;
+   
+    per.terminalType=1;
+    per.msgType=@"txt";
+    per.replyMsg=1;
+    per.token = [SocketHandle shareManager].token;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+ 
+    per.timeStamp =[defaults integerForKey:@"timestamp"];
+    NSLog(@"%ld",[defaults integerForKey:@"timestamp"]);
+    NSLog(@"%@",[SocketHandle shareManager].token);
+   
+    [c writeWithmodel:per];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (NSString *)currentTimeStr{
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    return timeString;
 }
 
 

@@ -3,7 +3,7 @@
 //  ServerAndClient
 //
 //  Created by 蒋杏飞 on 15/5/26.
-//  Copyright (c) 2015年 蓝鸥科技. All rights reserved.
+//  Copyright (c) 2015年  All rights reserved.
 //
 
 #import "SendField.h"
@@ -49,8 +49,6 @@
     [VoiceButton addTarget:self action:@selector(VoiceAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:VoiceButton];
 
-    
-    
     self.messageView = [[UITextView alloc] initWithFrame:CGRectMake(100, 5, self.frame.size.width - sendButton.frame.size.width - 30-PicButton.frame.size.width-PicButton.frame.size.width, sendButton.frame.size.height)];
     [self.messageView setDelegate:self];
     [self addSubview:self.messageView];

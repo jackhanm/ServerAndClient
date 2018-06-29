@@ -17,7 +17,7 @@
 +(NSMutableDictionary *)loginName:(NSString *)loginName password:(NSString *)password
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:loginName forKey:@"loginName"];
+    [params setObject:loginName forKey:@"username"];
     [params setObject:password forKey:@"password"];
     return [self baseGetInfoFacory:params];
 }

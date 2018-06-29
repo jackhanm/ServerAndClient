@@ -30,6 +30,8 @@ typedef NS_ENUM(NSInteger, SocketType) {
 // 真正发送信息的socket
 @property (nonatomic, strong) GCDAsyncSocket *realSocket;
 
+@property(nonatomic, assign)NSInteger timestamp;
+@property(nonatomic, strong)NSString *token;
 // 当前socket类型
 @property (nonatomic) SocketType type;
 

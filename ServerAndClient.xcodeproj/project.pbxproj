@@ -172,6 +172,7 @@
 		18682EE01B12FA330040124D = {
 			isa = PBXGroup;
 			children = (
+				66CA757F20E60B4F008AC42E /* ToolImClass */,
 				668C240A20E4D452004523C2 /* Network */,
 				6605E91E20D9EF82004B2519 /* protocobuf */,
 				18682EEB1B12FA330040124D /* ServerAndClient */,
@@ -328,6 +329,14 @@
 			path = ServerAndClient/Network;
 			sourceTree = "<group>";
 		};
+		66CA757F20E60B4F008AC42E /* ToolImClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ToolImClass;
+			path = ServerAndClient/ToolImClass;
+			sourceTree = "<group>";
+		};
 		8AD4EADA1B57DA0ABB353CA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,7 +404,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "蓝鸥科技";
+				ORGANIZATIONNAME = jack;
 				TargetAttributes = {
 					18682EE81B12FA330040124D = {
 						CreatedOnToolsVersion = 6.1;
